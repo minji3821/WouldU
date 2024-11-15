@@ -21,36 +21,38 @@ public class Gravity : MonoBehaviour
 
             if (direction.magnitude > 5f) // 드래그 최소 거리
             {
-                bool isRightSide = currentTouchPosition.x > Screen.width / 2; // 현재 터치 위치를 기준으로 판단
+                // 현재 터치 위치가 화면의 오른쪽인지 확인
+                bool isRightSide = currentTouchPosition.x > Screen.width / 2;
                 float rotationAmount = rotationSpeed * Time.deltaTime;
 
+                // 현재 드래그 방향에 따라 회전 방향 결정
                 if (isRightSide)
                 {
-                    // 현재 위치가 오른쪽 화면
-                    if (direction.y < 0) // 아래쪽으로 드래그
+                    // 오른쪽 화면에서 드래그
+                    if (direction.y < 0) // 아래로 드래그
                     {
-                        transform.Rotate(Vector3.forward, -rotationAmount); // 시계방향
+                        transform.Rotate(Vector3.forward, -rotationAmount); // 시계 방향
                     }
-                    else if (direction.y > 0) // 위쪽으로 드래그
+                    else if (direction.y > 0) // 위로 드래그
                     {
-                        transform.Rotate(Vector3.forward, rotationAmount); // 반시계방향
+                        transform.Rotate(Vector3.forward, rotationAmount); // 반시계 방향
                     }
                 }
                 else
                 {
-                    // 현재 위치가 왼쪽 화면
-                    if (direction.y < 0) // 아래쪽으로 드래그
+                    // 왼쪽 화면에서 드래그
+                    if (direction.y < 0) // 아래로 드래그
                     {
-                        transform.Rotate(Vector3.forward, rotationAmount); // 반시계방향
+                        transform.Rotate(Vector3.forward, rotationAmount); // 반시계 방향
                     }
-                    else if (direction.y > 0) // 위쪽으로 드래그
+                    else if (direction.y > 0) // 위로 드래그
                     {
-                        transform.Rotate(Vector3.forward, -rotationAmount); // 시계방향
+                        transform.Rotate(Vector3.forward, -rotationAmount); // 시계 방향
                     }
                 }
 
                 // 시작 위치 업데이트
-                startTouchPosition = currentTouchPosition;
+                startTouchPosition = currentTouchPosition; // 드래그를 따라 업데이트
             }
         }
         else if (Input.GetMouseButtonUp(0))
