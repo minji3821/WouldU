@@ -18,6 +18,7 @@ public class ObjectMove : MonoBehaviour
         // 중력 장치 또는 이미 고정된 오브젝트와 충돌 시
         if (other.transform.CompareTag("Gravity") || other.transform.parent?.CompareTag("Gravity") == true)
         {
+            Debug.Log("충돌했다고 말해!!");
             // 이동 정지
             if (moveTweener != null && moveTweener.IsPlaying())
             {
