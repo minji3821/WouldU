@@ -2,63 +2,47 @@ using UnityEngine;
 
 public class Gravity : MonoBehaviour
 {
-    private Vector2 startTouchPosition;
-    private bool isDragging = false;
-    private float rotationSpeed = 500f; // 회전 속도 조절용
+    private float rotateSpeed = 500f; // 회전 속도 조절용
+    private Vector2 previousMousePosition;
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            // 터치 시작 시 위치 저장
-            startTouchPosition = Input.mousePosition;
-            isDragging = true;
+            // 드래그 시작 시 이전 마우스 위치 저장
+            previousMousePosition = Input.mousePosition;
         }
-        else if (Input.GetMouseButton(0) && isDragging)
+
+        if (Input.GetMouseButton(0))
         {
-            Vector2 currentTouchPosition = Input.mousePosition;
-            Vector2 direction = currentTouchPosition - startTouchPosition;
+            // 현재 마우스 위치
+            Vector2 currentMousePosition = Input.mousePosition;
 
-            if (direction.magnitude > 5f) // 드래그 최소 거리
-            {
-                // 현재 터치 위치가 화면의 오른쪽인지 확인
-                bool isRightSide = currentTouchPosition.x > Screen.width / 2;
-                float rotationAmount = rotationSpeed * Time.deltaTime;
+            // 드래그 방향 계산
+            Vector2 delta = currentMousePosition - previousMousePosition;
 
-                // 현재 드래그 방향에 따라 회전 방향 결정
-                if (isRightSide)
-                {
-                    // 오른쪽 화면에서 드래그
-                    if (direction.y < 0) // 아래로 드래그
-                    {
-                        transform.Rotate(Vector3.forward, -rotationAmount); // 시계 방향
-                    }
-                    else if (direction.y > 0) // 위로 드래그
-                    {
-                        transform.Rotate(Vector3.forward, rotationAmount); // 반시계 방향
-                    }
-                }
-                else
-                {
-                    // 왼쪽 화면에서 드래그
-                    if (direction.y < 0) // 아래로 드래그
-                    {
-                        transform.Rotate(Vector3.forward, rotationAmount); // 반시계 방향
-                    }
-                    else if (direction.y > 0) // 위로 드래그
-                    {
-                        transform.Rotate(Vector3.forward, -rotationAmount); // 시계 방향
-                    }
-                }
+            // 입력값 정규화
+            float normalizedDeltaY = delta.y / Screen.height;
+            float normalizedDeltaX = delta.x / Screen.width;
 
-                // 시작 위치 업데이트
-                startTouchPosition = currentTouchPosition; // 드래그를 따라 업데이트
-            }
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            // 터치 종료 시 드래그 상태 초기화
-            isDragging = false;
+            // Z축 회전량 계산
+            float verticalRotationAmount = normalizedDeltaY * rotateSpeed;
+            float horizontalRotationAmount = normalizedDeltaX * rotateSpeed;
+
+            // Z축 회전 적용 (상하 + 좌우)
+            float zRotation = 0;
+
+            // 상하 드래그에 따른 회전
+            zRotation += (currentMousePosition.x > Screen.width / 2) ? verticalRotationAmount : -verticalRotationAmount;
+
+            // 좌우 드래그에 따른 회전
+            zRotation += (currentMousePosition.y > Screen.height / 2) ? -horizontalRotationAmount : horizontalRotationAmount;
+
+            // Z축 회전 적용
+            transform.Rotate(0, 0, zRotation);
+
+            // 이전 위치 업데이트
+            previousMousePosition = currentMousePosition;
         }
     }
 }
