@@ -22,6 +22,7 @@ public class ObjectMove : MonoBehaviour
             if (moveTweener != null && moveTweener.IsPlaying())
             {
                 moveTweener.Kill();
+                moveTweener = null;
                 // GameManager¿¡ ¾Ë¸²
                 FindObjectOfType<GameManager>().OnObjectFixed();
             }

@@ -5,6 +5,15 @@ TagManager:
   serializedVersion: 2
   tags:
   - Gravity
+  - Asteroid
+  - EnemyBullet
+  - HeroBullet
+  - Obj_01
+  - Obj_02
+  - Obj_03
+  - Obj_04
+  - Obj_05
+  - Obj_06
   layers:
   - Default
   - TransparentFX
