@@ -14,7 +14,11 @@ GameObject:
   - component: {fileID: 1521530091566123478}
   - component: {fileID: -3974183529545171482}
   - component: {fileID: -8269901235829542108}
+<<<<<<< HEAD
   - component: {fileID: 4233631982196338715}
+=======
+  - component: {fileID: -8656573987596761958}
+>>>>>>> 938b3f0b77c4beeb63286fb8ba66be8b7bc3e4cc
   m_Layer: 0
   m_Name: Obj_03
   m_TagString: Obj_03
@@ -244,14 +248,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76219d1a9d37aa94f8a0d7aa70cf85ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!58 &4233631982196338715
 CircleCollider2D:
+=======
+--- !u!114 &-8656573987596761958
+MonoBehaviour:
+>>>>>>> 938b3f0b77c4beeb63286fb8ba66be8b7bc3e4cc
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7688553514812723439}
   m_Enabled: 1
+<<<<<<< HEAD
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -279,3 +289,9 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.51
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d99971ce93ee48a45a4f94c8a17e1a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+>>>>>>> 938b3f0b77c4beeb63286fb8ba66be8b7bc3e4cc
