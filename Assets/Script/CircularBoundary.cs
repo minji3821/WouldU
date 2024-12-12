@@ -6,7 +6,7 @@ public class CircularBoundary : MonoBehaviour
 {
     private LineRenderer lineRenderer;
 
-    private void Start()
+    private void Awake()
     {
         // LineRenderer ¼³Á¤
         lineRenderer = gameObject.AddComponent<LineRenderer>();
