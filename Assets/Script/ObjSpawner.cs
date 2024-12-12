@@ -12,6 +12,8 @@ public class ObjectSpawner : MonoBehaviour
     private float objectSpeed;          // 이동 속도
     private Queue<GameObject> spawnQueue = new Queue<GameObject>(); // 스폰 대기열
 
+    [SerializeField] private PreviewUIManager previewUIManager;
+
     public void UpdateSettings(int objectCount, float speed)
     {
         objectSpeed = speed;
@@ -47,6 +49,7 @@ public class ObjectSpawner : MonoBehaviour
 
         // 새로운 랜덤 오브젝트를 대기열에 추가하여 항상 3개 유지
         EnqueueRandomObject();
+        UpdatePreviewUI();
     }
 
     private void PrepareInitialSpawnQueue()
@@ -62,5 +65,21 @@ public class ObjectSpawner : MonoBehaviour
     {
         GameObject randomPrefab = objectPrefabs[Random.Range(0, objectPrefabs.Length)];
         spawnQueue.Enqueue(randomPrefab);
+    }
+
+    private void UpdatePreviewUI()
+    {
+        // 대기열의 스프라이트 정보를 UIManager로 전달
+        List<Sprite> sprites = new List<Sprite>();
+        foreach (var prefab in spawnQueue)
+        {
+            Sprite sprite = prefab.GetComponent<SpriteRenderer>().sprite;
+            if (sprite != null)
+            {
+                sprites.Add(sprite);
+            }
+        }
+
+        previewUIManager.UpdatePreview(sprites);
     }
 }
