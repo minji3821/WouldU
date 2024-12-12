@@ -126,6 +126,5 @@ public class ObjectConnectionManager : MonoBehaviour
             Destroy(obj.gameObject);
         }
 
-        Debug.Log("Connected objects deleted.");
     }
 }
