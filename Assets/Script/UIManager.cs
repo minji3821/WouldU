@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
     private GameObject settingPanel;
     [SerializeField]
     private TextMeshProUGUI scoreText;
+    [SerializeField]
+    private GameObject resultPanel;
 
     private bool isPanelActive = false;
 
