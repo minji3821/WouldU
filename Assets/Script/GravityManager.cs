@@ -4,7 +4,7 @@ using UnityEngine;
 public class GravityManager : MonoBehaviour
 {
     public Transform gravityCenter; // 중력장치 Transform (화면 중앙 고정)
-    public float gravityForce = 5f; // 중력 세기
+    public float gravityForce = 3f; // 중력 세기
 
     private void FixedUpdate()
     {
