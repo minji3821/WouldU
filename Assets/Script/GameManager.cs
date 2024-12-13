@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     //이동하는데 걸리는 시간이라 적을수록 빠름
     [SerializeField]
     public float[] objectSpeedsPerLevel;
+    [SerializeField]
+    private Transform gravity;
+    [SerializeField]
+    private Transform objSpawner;
 
     private GameObject obj;
 
@@ -108,12 +112,30 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        isGaming = false;
         Time.timeScale = 0f;
         UIManager.ShowResult(currenScore);
     }
 
     public void ReStart()
     {
+        for (int i = gravity.childCount - 1; i >= 0; i--) 
+        {
+            Transform child = gravity.GetChild(i);
+            Destroy(child.gameObject);
+        }
+
+        for (int i = objSpawner.childCount - 1; i >= 0; i--)
+        {
+            Transform child = objSpawner.GetChild(i);
+            Destroy(child.gameObject);
+        }
+
+        currenScore = 0;
+        currentLevel = 1;
+        currentObjectCount = 3;
+
+        isGaming = false;
         UIManager.InitSetting();
     }
 }

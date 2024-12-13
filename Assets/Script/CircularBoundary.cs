@@ -50,4 +50,10 @@ public class CircularBoundary : MonoBehaviour
         lineRenderer.positionCount = points.Length;
         lineRenderer.SetPositions(points);
     }
+
+    public void InitSetting()
+    {
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.white;
+    }
 }

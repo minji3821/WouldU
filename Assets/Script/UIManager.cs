@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
     private Sprite[] BGImgs;
     [SerializeField]
     private SpriteRenderer BGImg;
+    [SerializeField]
+    private CircularBoundary CB;
 
     private bool isPanelActive = false;
 
@@ -35,6 +37,11 @@ public class UIManager : MonoBehaviour
         {
             isPanelActive = !isPanelActive;
             settingPanel.SetActive(isPanelActive);
+
+            if (isPanelActive)
+                Time.timeScale = 0f;
+            else
+                Time.timeScale = 1f;
         }
     }
 
@@ -65,6 +72,10 @@ public class UIManager : MonoBehaviour
 
     public void InitSetting()
     {
-        
+        resultPanel.SetActive(false);
+        if (scoreText != null)
+            scoreText.text = "0";
+
+        CB.InitSetting();
     }
 }

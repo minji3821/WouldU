@@ -42,7 +42,7 @@ public class ObjectSpawner : MonoBehaviour
         GameObject selectedPrefab = spawnQueue.Dequeue();
 
         // 행성 생성
-        GameObject spawnedObject = Instantiate(selectedPrefab);
+        GameObject spawnedObject = Instantiate(selectedPrefab, gameObject.transform);
 
         // DOTween 경로 가져오기
         Vector3[] randomPath = pathManager.GetRandomPath();
