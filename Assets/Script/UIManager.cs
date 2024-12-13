@@ -15,6 +15,10 @@ public class UIManager : MonoBehaviour
     private GameObject resultPanel;
     [SerializeField]
     private TextMeshProUGUI resultScoreText;
+    [SerializeField]
+    private Sprite[] BGImgs;
+    [SerializeField]
+    private SpriteRenderer BGImg;
 
     private bool isPanelActive = false;
 
@@ -44,6 +48,7 @@ public class UIManager : MonoBehaviour
     public void GoTOLobby()
     {
         SceneManager.LoadScene("StartScene");
+        GameManager.Inst.isGaming = false;
     }
 
     public void ShowResult(int score)
@@ -51,5 +56,10 @@ public class UIManager : MonoBehaviour
         resultPanel.SetActive(true);
         if (resultScoreText != null)
             resultScoreText.text = $"{score} Á¡";
+    }
+
+    public void ChangeBG(int Level)
+    {
+        BGImg.sprite = BGImgs[Level - 1];
     }
 }

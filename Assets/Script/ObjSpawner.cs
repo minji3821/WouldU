@@ -14,6 +14,14 @@ public class ObjectSpawner : MonoBehaviour
 
     [SerializeField] private PreviewUIManager previewUIManager;
 
+    private void Start()
+    {
+        GameManager.Inst.isGaming = true;
+        float currentSpeed = GameManager.Inst.objectSpeedsPerLevel[GameManager.Inst.currentLevel - 1];
+        UpdateSettings(3, currentSpeed);
+        SpawnObject();
+    }
+
     public void UpdateSettings(int objectCount, float speed)
     {
         objectSpeed = speed;
@@ -22,6 +30,8 @@ public class ObjectSpawner : MonoBehaviour
 
     public void SpawnObject()
     {
+        Debug.Log("Spawn");
+        Debug.Log(spawnQueue.Count);
         if (spawnQueue.Count == 0)
         {
             Debug.LogError("Spawn Queue is empty! Something went wrong.");
@@ -63,7 +73,7 @@ public class ObjectSpawner : MonoBehaviour
 
     private void EnqueueRandomObject()
     {
-        GameObject randomPrefab = objectPrefabs[Random.Range(0, objectPrefabs.Length)];
+        GameObject randomPrefab = objectPrefabs[Random.Range(0, GameManager.Inst.currentObjectCount + 1)];
         spawnQueue.Enqueue(randomPrefab);
     }
 

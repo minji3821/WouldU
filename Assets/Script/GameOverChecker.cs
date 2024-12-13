@@ -25,7 +25,8 @@ public class GameOverChecker : MonoBehaviour
 
     private void Update()
     {
-        CheckPlanetPositions();
+        if (GameManager.Inst.isGaming)
+            CheckPlanetPositions();
     }
 
     private void CheckPlanetPositions()
