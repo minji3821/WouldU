@@ -48,8 +48,7 @@ public class GameOverChecker : MonoBehaviour
                 if (distance > boundaryRadius)
                 {
                     // 행성의 중심점이 선을 넘는 경우 -> 게임 오버
-                    Debug.Log("게임 오버! 행성이 원 밖으로 나갔습니다.");
-                    GameOver();
+                    GameManager.Inst.GameOver();
                     return;
                 }
                 else if (distanceToBoundary >= boundaryRadius && distance <= boundaryRadius)
@@ -69,18 +68,11 @@ public class GameOverChecker : MonoBehaviour
         {
             lineRenderer.startColor = Color.red;
             lineRenderer.endColor = Color.red;
-            Debug.Log("선 넘음");
         }
         else
         {
             lineRenderer.startColor = Color.white;
             lineRenderer.endColor = Color.white;
         }
-    }
-
-    private void GameOver()
-    {
-        Debug.Log("Game Over!");
-        Time.timeScale = 0f; // 게임 정지
     }
 }

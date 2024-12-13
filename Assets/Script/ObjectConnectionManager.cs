@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class ObjectConnectionManager : MonoBehaviour
-{
+{    
     private LineRenderer lineRenderer;
     private List<Transform> connectedObjects = new List<Transform>(); // 직접 연결된 오브젝트들
     private HashSet<Transform> visitedObjects = new HashSet<Transform>(); // 간접 연결 탐색 시 방문한 오브젝트
@@ -124,6 +124,7 @@ public class ObjectConnectionManager : MonoBehaviour
         foreach (Transform obj in visitedObjects)
         {
             Destroy(obj.gameObject);
+            GameManager.Inst.AddScore(25);
         }
 
     }

@@ -13,6 +13,8 @@ public class UIManager : MonoBehaviour
     private TextMeshProUGUI scoreText;
     [SerializeField]
     private GameObject resultPanel;
+    [SerializeField]
+    private TextMeshProUGUI resultScoreText;
 
     private bool isPanelActive = false;
 
@@ -42,5 +44,12 @@ public class UIManager : MonoBehaviour
     public void GoTOLobby()
     {
         SceneManager.LoadScene("StartScene");
+    }
+
+    public void ShowResult(int score)
+    {
+        resultPanel.SetActive(true);
+        if (resultScoreText != null)
+            resultScoreText.text = $"{score} Á¡";
     }
 }

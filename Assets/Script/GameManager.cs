@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    private static GameManager instance;
+    public static GameManager Inst => instance;
+
     [SerializeField]
     private ObjectSpawner objectSpawner;
 
@@ -20,6 +23,20 @@ public class GameManager : MonoBehaviour
     private GameObject obj;
     private UIManager uiManager;
 
+    private void Awake()
+    {
+        if (instance && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     private void Start()
     {
         obj = GameObject.Find("UIManager");
@@ -29,12 +46,6 @@ public class GameManager : MonoBehaviour
         UpdateSpawnerSettings();
         objectSpawner.SpawnObject();
     }
-
-    //public void ObjectSpawn()  // To do: 스크립트 하나 빼주기
-    //{
-    //    int randomNum = Random.Range(1, currentObjectCount + 1);
-    //    Debug.Log("오브젝트" + randomNum + "생성");
-    //}
 
     public void AddScore(int score)
     {
@@ -75,5 +86,11 @@ public class GameManager : MonoBehaviour
     {
         // 다음 오브젝트 생성
         objectSpawner.SpawnObject();
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0f;
+        uiManager.ShowResult(currenScore);
     }
 }
