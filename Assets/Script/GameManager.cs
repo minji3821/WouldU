@@ -119,15 +119,20 @@ public class GameManager : MonoBehaviour
 
     public void ReStart()
     {
-        for (int i = gravity.childCount - 1; i >= 0; i--) 
+        GameObject obj;
+        obj = GameObject.Find("Gravity");
+
+        for (int i = obj.transform.childCount - 1; i >= 0; i--) 
         {
-            Transform child = gravity.GetChild(i);
+            Transform child = obj.transform.GetChild(i);
             Destroy(child.gameObject);
         }
 
-        for (int i = objSpawner.childCount - 1; i >= 0; i--)
+        obj = GameObject.Find("ObjSpawner");
+
+        for (int i = obj.transform.childCount - 1; i >= 0; i--)
         {
-            Transform child = objSpawner.GetChild(i);
+            Transform child = obj.transform.GetChild(i);
             Destroy(child.gameObject);
         }
 
@@ -135,7 +140,16 @@ public class GameManager : MonoBehaviour
         currentLevel = 1;
         currentObjectCount = 3;
 
-        isGaming = false;
         UIManager.InitSetting();
+        Time.timeScale = 1f;
+        ObjectSpawner.StartSpawn();
+    }
+
+    public void InitSetting()
+    {
+        currenScore = 0;
+        currentLevel = 1;
+        currentObjectCount = 3;
+        Time.timeScale = 1f;
     }
 }

@@ -379,6 +379,8 @@ MonoBehaviour:
   - 2
   - 1
   - 1
+  gravity: {fileID: 1222837274}
+  objSpawner: {fileID: 1848947045}
 --- !u!4 &231506582
 Transform:
   m_ObjectHideFlags: 0
@@ -1817,6 +1819,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 26f65647600a630498c2d5f282f98342, type: 3}
   - {fileID: 21300000, guid: a6fb80812ab8b69469d9e678f165a548, type: 3}
   BGImg: {fileID: 1437098013}
+  CB: {fileID: 1308747968}
 --- !u!4 &1308747967
 Transform:
   m_ObjectHideFlags: 0
@@ -2517,8 +2520,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 231506581}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1308747966}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: ReStart
         m_Mode: 1
         m_Arguments:

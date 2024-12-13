@@ -16,6 +16,11 @@ public class ObjectSpawner : MonoBehaviour
 
     private void Start()
     {
+        StartSpawn();
+    }
+
+    public void StartSpawn()
+    {
         GameManager.Inst.isGaming = true;
         float currentSpeed = GameManager.Inst.objectSpeedsPerLevel[GameManager.Inst.currentLevel - 1];
         UpdateSettings(3, currentSpeed);

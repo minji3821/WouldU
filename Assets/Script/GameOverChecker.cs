@@ -50,6 +50,7 @@ public class GameOverChecker : MonoBehaviour
                 {
                     // 행성의 중심점이 선을 넘는 경우 -> 게임 오버
                     GameManager.Inst.GameOver();
+                    Debug.Log("hihi");
                     return;
                 }
                 else if (distanceToBoundary >= boundaryRadius && distance <= boundaryRadius)

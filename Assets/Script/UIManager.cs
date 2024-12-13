@@ -56,6 +56,7 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene("StartScene");
         GameManager.Inst.isGaming = false;
+        GameManager.Inst.InitSetting();
     }
 
     public void ShowResult(int score)
@@ -77,5 +78,10 @@ public class UIManager : MonoBehaviour
             scoreText.text = "0";
 
         CB.InitSetting();
+    }
+
+    public void ReStart()
+    {
+        GameManager.Inst.ReStart();
     }
 }
