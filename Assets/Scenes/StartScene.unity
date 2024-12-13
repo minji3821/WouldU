@@ -1197,13 +1197,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1327754449}
   - component: {fileID: 1327754448}
+  - component: {fileID: 1327754450}
   m_Layer: 0
-  m_Name: Audio Source
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1327754448
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1315,6 +1316,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327754450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327754447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 286ec814d5f04064597aa667a1ba4e51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmClips:
+  - bgmType: 1
+    clip: {fileID: 8300000, guid: ba380d22ff263974ea1975f3745db614, type: 3}
+    volume: 0.11
+  tileSounds:
+  - soundType: 0
+    clip: {fileID: 8300000, guid: 5f7aa108ee8666f488cb993df3995a6c, type: 3}
+    volume: 1
+  audioBgm: {fileID: 1327754448}
+  audioSfx: {fileID: 1327754448}
 --- !u!1 &1342917919
 GameObject:
   m_ObjectHideFlags: 0

@@ -120,11 +120,13 @@ public class ObjectConnectionManager : MonoBehaviour
 
     private void DeleteConnectedObjects()
     {
+        SoundManager.instance.PlayTileESfx(SoundManager.TileESfx.SFX_Boom);
         // 방문한 모든 오브젝트 삭제
         foreach (Transform obj in visitedObjects)
         {
             Destroy(obj.gameObject);
             GameManager.Inst.AddScore(25);
+            
         }
 
     }
