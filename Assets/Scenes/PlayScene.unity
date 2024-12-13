@@ -371,7 +371,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d60e087bb2aa7f74a9c8baea38bb8cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectSpawner: {fileID: 1848947044}
+  currentLevel: 1
+  currentObjectCount: 3
   isGaming: 0
   levelUpScores: e8030000d0070000b80b0000
   objectSpeedsPerLevel:
@@ -409,7 +410,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &247438745
 Transform:
   m_ObjectHideFlags: 0
@@ -1812,9 +1813,9 @@ MonoBehaviour:
   resultPanel: {fileID: 1364157894}
   resultScoreText: {fileID: 1573057137}
   BGImgs:
-  - {fileID: 21300000, guid: e373ae03a5fc0ec48b95f757851b1fe9, type: 3}
-  - {fileID: 21300000, guid: 612bcba555f937b45a21e80e6b560b42, type: 3}
-  - {fileID: 21300000, guid: a0da78536b8d87f48b4422a800e57fa2, type: 3}
+  - {fileID: 21300000, guid: 40fd2244495aa7c4c898efe8a139980a, type: 3}
+  - {fileID: 21300000, guid: 26f65647600a630498c2d5f282f98342, type: 3}
+  - {fileID: 21300000, guid: a6fb80812ab8b69469d9e678f165a548, type: 3}
   BGImg: {fileID: 1437098013}
 --- !u!4 &1308747967
 Transform:
@@ -2032,7 +2033,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 21300000, guid: e373ae03a5fc0ec48b95f757851b1fe9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40fd2244495aa7c4c898efe8a139980a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2366,7 +2367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1738112597
 Transform:
   m_ObjectHideFlags: 0
@@ -2515,7 +2516,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1746520331}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 231506581}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ReStart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1746520331
 MonoBehaviour:
   m_ObjectHideFlags: 0

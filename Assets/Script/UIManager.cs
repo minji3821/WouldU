@@ -62,4 +62,9 @@ public class UIManager : MonoBehaviour
     {
         BGImg.sprite = BGImgs[Level - 1];
     }
+
+    public void InitSetting()
+    {
+        
+    }
 }

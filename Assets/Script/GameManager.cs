@@ -111,4 +111,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         UIManager.ShowResult(currenScore);
     }
+
+    public void ReStart()
+    {
+        UIManager.InitSetting();
+    }
 }
